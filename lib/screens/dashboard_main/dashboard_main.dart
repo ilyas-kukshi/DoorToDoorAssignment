@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:door_to_door/screens/dashboard_main/all_categories.dart';
 import 'package:door_to_door/screens/dashboard_main/carousel.dart';
-import 'package:door_to_door/shared/app_theme_shared.dart';
+import 'package:door_to_door/screens/dashboard_main/offer_zone.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardMain extends StatefulWidget {
@@ -19,13 +19,21 @@ class _DashBoardMainState extends State<DashBoardMain> {
     'assets/images/carousel1.png',
     'assets/images/carousel1.png'
   ];
+
+  List<String> carousel2 = [
+    'assets/images/carousel2.png',
+    'assets/images/carousel2.png',
+    'assets/images/carousel2.png',
+    'assets/images/carousel2.png',
+    'assets/images/carousel2.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
         SliverAppBar(
-          backgroundColor: Color(0xff52C9EA).withOpacity(0.6),
+          backgroundColor: const Color(0xff52C9EA).withOpacity(0.6),
           leading: GestureDetector(
             child: const Icon(
               Icons.menu,
@@ -80,7 +88,14 @@ class _DashBoardMainState extends State<DashBoardMain> {
                 imageData: carousel1,
                 viewportFraction: 0.8,
                 showDotIndicator: true,
-              )
+              ),
+              const SizedBox(height: 16),
+              const OfferZone(),
+              Carousel(
+                  imageData: carousel2,
+                  viewportFraction: 1.0,
+                  showDotIndicator: true),
+              const SizedBox(height: 16),
             ],
           ),
         )
