@@ -2,6 +2,9 @@ import 'package:badges/badges.dart';
 import 'package:door_to_door/screens/dashboard_main/all_categories.dart';
 import 'package:door_to_door/screens/dashboard_main/carousel.dart';
 import 'package:door_to_door/screens/dashboard_main/offer_zone.dart';
+import 'package:door_to_door/screens/dashboard_main/recommendation_for_you.dart';
+import 'package:door_to_door/screens/dashboard_main/shop_by_brands.dart';
+import 'package:door_to_door/screens/dashboard_main/trending_now.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardMain extends StatefulWidget {
@@ -26,6 +29,21 @@ class _DashBoardMainState extends State<DashBoardMain> {
     'assets/images/carousel2.png',
     'assets/images/carousel2.png',
     'assets/images/carousel2.png',
+  ];
+  List<String> carousel3 = [
+    'assets/images/carousel3a.png',
+    'assets/images/carousel3a.png',
+    'assets/images/carousel3a.png',
+    'assets/images/carousel3a.png',
+    'assets/images/carousel3a.png',
+  ];
+
+  List<String> carousel4 = [
+    'assets/images/carousel3b.png',
+    'assets/images/carousel3b.png',
+    'assets/images/carousel3b.png',
+    'assets/images/carousel3b.png',
+    'assets/images/carousel3b.png',
   ];
   @override
   Widget build(BuildContext context) {
@@ -81,6 +99,7 @@ class _DashBoardMainState extends State<DashBoardMain> {
         ),
         SliverToBoxAdapter(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const AllCategories(),
               const SizedBox(height: 16),
@@ -96,6 +115,21 @@ class _DashBoardMainState extends State<DashBoardMain> {
                   viewportFraction: 1.0,
                   showDotIndicator: true),
               const SizedBox(height: 16),
+              Carousel(
+                  imageData: carousel3,
+                  viewportFraction: 1.0,
+                  showDotIndicator: true),
+              const SizedBox(height: 16),
+              Carousel(
+                  imageData: carousel4,
+                  viewportFraction: 1.0,
+                  showDotIndicator: true),
+              const SizedBox(height: 16),
+              const TrendingNow(),
+              const SizedBox(height: 16),
+              const ShopByBrands(),
+              const SizedBox(height: 16),
+              const RecommendationForYou(),
             ],
           ),
         )
