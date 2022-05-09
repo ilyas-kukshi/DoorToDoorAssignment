@@ -1,4 +1,4 @@
-import 'package:door_to_door/screens/dashboard_main.dart';
+import 'package:door_to_door/screens/dashboard_main/dashboard_main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,11 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-       
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+          fontFamily: 'Roboto',
+          fontSize: 14,
+          color: Colors.black,
+        )),
         primarySwatch: Colors.blue,
       ),
       home: const DashBoardMain(),
     );
   }
 }
-
