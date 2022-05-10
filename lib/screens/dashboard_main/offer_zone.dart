@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:flutter_countdown_timer/index.dart';
 
 class OfferZone extends StatefulWidget {
   const OfferZone({Key? key}) : super(key: key);
@@ -35,6 +38,22 @@ class _OfferZoneState extends State<OfferZone> {
     OfferZoneModel("assets/images/offerzone/coffie.png", "Coffie", 70),
     OfferZoneModel("assets/images/offerzone/babycare.png", "Baby Care", 70),
   ];
+
+  late CountdownTimerController controller;
+  int endTime = DateTime.now().millisecondsSinceEpoch + 10000 * 30000000;
+
+  @override
+  void initState() {
+    controller = CountdownTimerController(endTime: endTime);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,18 +62,42 @@ class _OfferZoneState extends State<OfferZone> {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Container(
             decoration: const BoxDecoration(color: Color(0xffFFA800)),
-            child: Row(children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'OfferZone',
-                  style: Theme.of(context).textTheme.headline1!.copyWith(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ]),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'OfferZone',
+                      style: Theme.of(context).textTheme.headline1!.copyWith(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  CountdownTimer(
+                    endTime: endTime,
+                    widgetBuilder: (_,  time) {
+                      if (time  == null) {
+                        return Text('Offer over',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1!
+                                .copyWith(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold));
+                      }
+                      return Text(
+                        '  ${time.hours}:${time.min}:${time.sec} ',
+                        style: Theme.of(context).textTheme.headline1!.copyWith(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      );
+                    },
+                  )
+                ]),
           ),
         ),
         Padding(

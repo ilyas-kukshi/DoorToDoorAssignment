@@ -61,14 +61,25 @@ class _DashBoardMainState extends State<DashBoardMain> {
           ),
           actions: [
             Badge(
+              badgeColor: Color(0xff417AC1),
+              badgeContent: Text(
+                '3',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline1!
+                    .copyWith(fontSize: 10, color: Colors.white),
+              ),
               child: GestureDetector(
                   child: const Icon(Icons.shopping_bag_outlined,
                       color: Colors.white)),
             ),
-            GestureDetector(
-              child: const Icon(
-                Icons.notifications_outlined,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: GestureDetector(
+                child: const Icon(
+                  Icons.notifications_outlined,
+                  color: Colors.white,
+                ),
               ),
             )
           ],
@@ -86,13 +97,14 @@ class _DashBoardMainState extends State<DashBoardMain> {
                         .textTheme
                         .headline1!
                         .copyWith(fontSize: 10, color: const Color(0xff777777)),
-                    prefix: Container(
-                        color: const Color(0xffA5CDFF),
-                        child:
-                            const Icon(Icons.search, color: Color(0xff777777))),
-                    suffixIcon: const Icon(
-                      Icons.camera_alt_outlined,
-                      color: Color(0xff417AC1),
+                    prefixIcon:
+                        const Icon(Icons.search, color: Color(0xff777777)),
+                    suffixIcon: Container(
+                      color: const Color(0xffA5CDFF),
+                      child: const Icon(
+                        Icons.camera_alt_outlined,
+                        color: Color(0xff417AC1),
+                      ),
                     )),
               ),
             ),
