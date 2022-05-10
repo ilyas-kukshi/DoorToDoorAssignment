@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:door_to_door/screens/dashboard_main/all_categories.dart';
 import 'package:door_to_door/screens/dashboard_main/carousel.dart';
+import 'package:door_to_door/screens/dashboard_main/flat_percent_off.dart';
 import 'package:door_to_door/screens/dashboard_main/offer_zone.dart';
 import 'package:door_to_door/screens/dashboard_main/recommendation_for_you.dart';
 import 'package:door_to_door/screens/dashboard_main/shop_by_brands.dart';
@@ -114,6 +115,8 @@ class _DashBoardMainState extends State<DashBoardMain> {
                   imageData: carousel2,
                   viewportFraction: 1.0,
                   showDotIndicator: true),
+              const SizedBox(height: 16),
+              const FlatPercentOff(),
               const SizedBox(height: 16),
               Carousel(
                   imageData: carousel3,
